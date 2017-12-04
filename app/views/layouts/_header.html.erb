@@ -9,32 +9,32 @@
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-        <%= link_to "Rails App", "#", class: "navbar-brand" %>
+        <%= link_to t("appname"), root_path, class: "navbar-brand" %>
       </div>
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav">
-          <li class="active"><a href="#">Link</a></li>
-          <li><a href="#">Link</a></li>
+          <li class="active"><%= link_to t("menu.home"), root_path %></li>
+          <li><%= link_to t("menu.posts"), root_path %></li>
         </ul>
-        <form class="navbar-form navbar-left" role="search">
-          <div class="form-group">
-            <input type="text" class="form-control" placeholder="Search">
-          </div>
-          <button type="submit" class="btn btn-default">Submit</button>
-        </form>
         <ul class="nav navbar-nav navbar-right">
-          <li><a href="#">Link</a></li>
+          <% if logged_in? %>
           <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+              <%= gravatar_for current_user, size: 25 %>
+              <%= current_user.name %> <b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li><a href="#">Action</a></li>
-              <li><a href="#">Another action</a></li>
-              <li><a href="#">Something else here</a></li>
-              <li><a href="#">Separated link</a></li>
+              <li><%= link_to t("profile"), current_user %></li>
+              <li><%= link_to t("settings"), "#" %></li>
+              <li class="divider"></li>
+              <li><%= link_to t("logout"), logout_path, method: :delete %></li>
             </ul>
           </li>
+          <% else %>
+          <li><%= link_to t("login"), login_path %></a></li>
+          <li><%= link_to t("signup"), signup_path %></a></li>
+          <% end %>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div>
