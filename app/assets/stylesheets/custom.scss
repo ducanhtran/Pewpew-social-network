@@ -1,11 +1,22 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.user_info {
+  .gravatar {
+    border-radius: 50%;
+  }
+}
+
 footer {
   text-align: center;
   background-color: #f5f5f5;
+  margin-top: 60px;
 
   .text-muted {
     padding: 20px 20px;
   }
+}
+
+.debug_dump {
+  margin: 15px;
 }
