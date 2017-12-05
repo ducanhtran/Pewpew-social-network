@@ -35,6 +35,7 @@ en:
     home: "Home"
     posts: "Posts"
   login: "Login"
+  remember_me: "Remember me on this computer"
   signup: "Sign Up"
   logout: "Logout"
   profile: "Profile"
