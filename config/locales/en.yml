@@ -30,4 +30,16 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  hello: "Hello world"
+  appname: "Rails App"
+  menu:
+    home: "Home"
+    posts: "Posts"
+  login: "Login"
+  signup: "Sign Up"
+  logout: "Logout"
+  profile: "Profile"
+  settings: "Settings"
+
+  errors:
+    messages:
+      login_invalid: "Invalid email/password combination"

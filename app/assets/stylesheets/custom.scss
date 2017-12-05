@@ -1,5 +1,13 @@
-@import "bootstrap-sprockets";
-@import "bootstrap";
+@import 'bootstrap-sprockets';
+@import 'bootstrap';
+
+.navbar-nav {
+  li {
+    a {
+      line-height: 27px;
+    }
+  }
+}
 
 .user_info {
   .gravatar {
