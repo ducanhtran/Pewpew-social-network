@@ -3,15 +3,22 @@ class User < ApplicationRecord
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\Z/i
 
-  before_save { self.email = email.downcase }
+  before_save {self.email = email.downcase}
 
   validates :name, presence: true, length: {maximum: 50}
   validates :email, presence: true, length: {maximum: 255},
-    format: {with: VALID_EMAIL_REGEX},
-    uniqueness: {case_sensitive: false}
-  validates :password, presence: true, length: { minium: 6, maximum: 16 }
+    format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}
+  validates :password, presence: true,
+    length: {within: Settings.password.minlen..Settings.password.maxlen},
+    allow_nil: true
 
   has_secure_password
+
+  scope :select_and_order, ->{select(%i(id name email)).order(id: :asc)}
+
+  def current_user? user
+    self == user
+  end
 
   def remember
     self.remember_token = User.new_token

@@ -1,0 +1,10 @@
+<%= provide :title, t("users") %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <h1 class="text-center"><%= t "users" %></h1>
+    <%= render "shared/flash" %>
+    <%= will_paginate %>
+    <%= render @users %>
+    <%= will_paginate %>
+  </div>
+</div>
