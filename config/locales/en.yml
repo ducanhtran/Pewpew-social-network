@@ -44,14 +44,33 @@ en:
   update_profile: "Update your profile"
   update_profile_success: "Profile updated"
   save_changes: "Save changes"
-  users: "All users"
-  delete: "Delete"
-  confirm_delete: "You sure?"
-  user:
+
+  users:
+    title: "All users"
+    create_success: "Please check your email to activate your account"
+    delete: "Delete"
+    confirm_delete: "You sure?"
     deleted: "User deleted"
     not_found: "User not found"
 
+  account_activations:
+    success: "Account activated!"
+    invalid: "Invalid activation link"
+
+  sessions:
+    login_invalid: "Invalid email/password combination"
+    link_invalid: "Account not activated. Check your email for the activation link."
+
   errors:
     count: "The form contains %{count}"
-    messages:
-      login_invalid: "Invalid email/password combination"
+
+  user_mailer:
+    activate: "Activate"
+    activation_object: "Account activation"
+    activation_text: "Hi %{name},
+      Welcome to the Sample App! Click on the link below to activate your account:
+      %{link}"
+    activation_html: "<h1>Sample App</h1><p>Hi %{name},</p>
+      <p>
+      Welcome to the Sample App! Click on the link below to activate your account:
+      </p>%{link}"
