@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       if user.activated?
         log_in user
         params[:session][:remember_me] == "1" ? remember(user) : forget(user)
-        redirect_back_or user
+        redirect_back_or root_path
       else
         flash[:warning] = t "sessions.link_invalid"
         redirect_to login_path

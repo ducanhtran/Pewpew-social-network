@@ -1,0 +1,11 @@
+<div class="media">
+  <div class="media-left">
+    <%= link_to gravatar_for(current_user, size: Settings.avatar.size_small,
+      class: "media-object") %>
+  </div>
+  <div class="media-body">
+    <h4 class="media-heading"><%= link_to current_user.name, current_user %></h4>
+    <p><%= link_to t("shared.view_my_profile"), current_user %></p>
+    <p><%= pluralize(current_user.microposts.count, t("shared.micropost")) %></p>
+  </div>
+</div>

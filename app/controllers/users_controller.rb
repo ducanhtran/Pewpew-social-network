@@ -5,12 +5,15 @@ class UsersController < ApplicationController
 
   def index
     @users = User.where_activated.select_and_order
-      .paginate page: params[:page], per_page: Settings.users.per_page
+      .paginate page: params[:page], per_page: Settings.users.index.users_per_page
   end
 
   def show
     @user = User.find_by id: params[:id]
+
     redirect_to root_path unless @user && @user.activated?
+    @microposts = @user.microposts
+      .paginate page: params[:page], per_page: Settings.users.show.microposts_per_page
   end
 
   def new
@@ -19,6 +22,7 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new user_params
+
     if @user.save
       @user.send_activation_email
       flash[:success] = t "users.create_success"
@@ -33,7 +37,7 @@ class UsersController < ApplicationController
 
   def update
     if @user.update_attributes user_params
-      flash[:success] = t "update_profile_success"
+      flash[:success] = t "users.update_profile_success"
       redirect_to @user
     else
       render :edit
@@ -60,16 +64,9 @@ class UsersController < ApplicationController
       :password_confirmation
   end
 
-  def logged_in_user
-    unless logged_in?
-      store_location
-      flash[:danger] = t "login_required"
-      redirect_to login_path
-    end
-  end
-
   def correct_user
     @user = User.find_by id: params[:id]
+
     redirect_to root_path unless current_user.current_user? @user
   end
 

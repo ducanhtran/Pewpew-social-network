@@ -26,15 +26,15 @@
               <%= gravatar_for current_user, size: 25 %>
               <%= current_user.name %> <b class="caret"></b></a>
             <ul class="dropdown-menu">
-              <li><%= link_to t("profile"), current_user %></li>
-              <li><%= link_to t("settings"), edit_user_path(current_user) %></li>
+              <li><%= link_to t("menu.profile"), current_user %></li>
+              <li><%= link_to t("menu.settings"), edit_user_path(current_user) %></li>
               <li class="divider"></li>
-              <li><%= link_to t("logout"), logout_path, method: :delete %></li>
+              <li><%= link_to t("menu.logout"), logout_path, method: :delete %></li>
             </ul>
           </li>
           <% else %>
-          <li><%= link_to t("login"), login_path %></a></li>
-          <li><%= link_to t("signup"), signup_path %></a></li>
+          <li><%= link_to t("menu.login"), login_path %></a></li>
+          <li><%= link_to t("menu.signup"), signup_path %></a></li>
           <% end %>
         </ul>
       </div><!-- /.navbar-collapse -->
