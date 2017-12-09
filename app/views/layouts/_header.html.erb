@@ -17,6 +17,7 @@
         <ul class="nav navbar-nav">
           <li class="active"><%= link_to t("menu.home"), root_path %></li>
           <li><%= link_to t("menu.posts"), root_path %></li>
+          <li><%= link_to t("users"), users_path %></li>
         </ul>
         <ul class="nav navbar-nav navbar-right">
           <% if logged_in? %>
@@ -26,7 +27,7 @@
               <%= current_user.name %> <b class="caret"></b></a>
             <ul class="dropdown-menu">
               <li><%= link_to t("profile"), current_user %></li>
-              <li><%= link_to t("settings"), "#" %></li>
+              <li><%= link_to t("settings"), edit_user_path(current_user) %></li>
               <li class="divider"></li>
               <li><%= link_to t("logout"), logout_path, method: :delete %></li>
             </ul>

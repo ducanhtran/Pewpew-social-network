@@ -1,0 +1,10 @@
+avatar:
+  size_default: 80
+  size_small: 50
+
+password:
+  minlen: 6
+  maxlen: 16
+
+users:
+  per_page: 10

@@ -35,12 +35,23 @@ en:
     home: "Home"
     posts: "Posts"
   login: "Login"
+  login_required: "Please login to continue"
   remember_me: "Remember me on this computer"
   signup: "Sign Up"
   logout: "Logout"
   profile: "Profile"
   settings: "Settings"
+  update_profile: "Update your profile"
+  update_profile_success: "Profile updated"
+  save_changes: "Save changes"
+  users: "All users"
+  delete: "Delete"
+  confirm_delete: "You sure?"
+  user:
+    deleted: "User deleted"
+    not_found: "User not found"
 
   errors:
+    count: "The form contains %{count}"
     messages:
       login_invalid: "Invalid email/password combination"
