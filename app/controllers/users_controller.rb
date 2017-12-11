@@ -4,13 +4,13 @@ class UsersController < ApplicationController
   before_action :admin_user, only: :destroy
 
   def index
-    @users = User.select_and_order
+    @users = User.where_activated.select_and_order
       .paginate page: params[:page], per_page: Settings.users.per_page
   end
 
   def show
     @user = User.find_by id: params[:id]
-    redirect_to root_path unless @user
+    redirect_to root_path unless @user && @user.activated?
   end
 
   def new
@@ -20,8 +20,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new user_params
     if @user.save
-      log_in @user
-      redirect_to @user
+      @user.send_activation_email
+      flash[:success] = t "users.create_success"
+      redirect_to login_path
     else
       render :new
     end
@@ -44,9 +45,9 @@ class UsersController < ApplicationController
 
     if user
       user.destroy
-      flash[:success] = t "user.deleted"
+      flash[:success] = t "users.deleted"
     else
-      flash[:warning] = t "user.not_found"
+      flash[:warning] = t "users.not_found"
     end
 
     redirect_to users_path
