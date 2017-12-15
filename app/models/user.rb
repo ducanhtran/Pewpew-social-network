@@ -1,13 +1,17 @@
 class User < ApplicationRecord
   attr_accessor :remember_token, :activation_token, :reset_token
 
+  has_many :microposts, dependent: :destroy
+
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\Z/i
 
   before_create :create_activation_digest
   before_save :downcase_email
 
-  validates :name, presence: true, length: {maximum: 50}
-  validates :email, presence: true, length: {maximum: 255},
+  validates :name, presence: true,
+    length: {maximum: Settings.models.user.name_len}
+  validates :email, presence: true,
+    length: {maximum: Settings.models.user.email_len},
     format: {with: VALID_EMAIL_REGEX}, uniqueness: {case_sensitive: false}
   validates :password, presence: true,
     length: {within: Settings.password.minlen..Settings.password.maxlen},

@@ -34,30 +34,43 @@ en:
   menu:
     home: "Home"
     posts: "Posts"
-  login: "Login"
-  login_required: "Please login to continue"
-  remember_me: "Remember me on this computer"
-  signup: "Sign Up"
-  logout: "Logout"
-  profile: "Profile"
-  settings: "Settings"
-  update_profile: "Update your profile"
-  update_profile_success: "Profile updated"
-  save_changes: "Save changes"
+    login: "Login"
+    signup: "Sign Up"
+    profile: "Profile"
+    settings: "Settings"
+    logout: "Logout"
+
+  home:
+    micropost_feed: "Micropost Feed"
+    welcome: "Welcome to the Rails App!"
+    description: "This is the home page."
+    signup: "Sign up now!"
+
+  shared:
+    view_my_profile: "view my profile"
+    micropost: "micropost"
 
   users:
     title: "All users"
+    update_profile: "Update your profile"
+    update_profile_success: "Profile updated"
+    save_changes: "Save changes"
     create_success: "Please check your email to activate your account"
     delete: "Delete"
     confirm_delete: "You sure?"
     deleted: "User deleted"
     not_found: "User not found"
+    microposts: "Microposts"
 
   account_activations:
     success: "Account activated!"
     invalid: "Invalid activation link"
 
   sessions:
+    title: "Log in"
+    button: "Login"
+    login_required: "Please login to continue"
+    remember_me: "Remember me on this computer"
     login_invalid: "Invalid email/password combination"
     link_invalid: "Account not activated. Check your email for the activation link."
     forgot_password: "(forgot password)"
@@ -66,6 +79,8 @@ en:
 
   errors:
     count: "The form contains %{count}"
+    error: "error"
+    picture_size_error: "should be less than 5MB"
 
   user_mailer:
     activate: "Activate"
@@ -98,3 +113,13 @@ en:
     email_sent: "Email sent with password reset instructions"
     email_not_found: "Email address not found"
     reset_expired: "Password reset has expired."
+
+  microposts:
+    placeholder: "Compose new micropost..."
+    button: "Post"
+    post_created: "Micropost created!"
+    post_deleted: "Micropost deleted"
+    delete_failed: "Delete failed"
+    post_time: "Posted %{time} ago."
+    delete: "delete"
+    delete_confirm: "You sure?"

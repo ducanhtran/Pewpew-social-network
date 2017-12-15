@@ -1,8 +1,7 @@
-<% provide :title, t("login") %>
+<% provide :title, t("sessions.title") %>
 <div class="row">
   <div class="col-md-4 col-md-offset-4">
-    <h1 class="text-center">Log In</h1>
-    <%= render "shared/flash" %>
+    <h1 class="text-center"><%= t "sessions.title" %></h1>
     <%= form_for :session, url: login_path do |f| %>
       <div class="form-group">
         <%= f.label :email %>
@@ -16,10 +15,10 @@
       <div class="checkbox">
         <%= f.label :remember_me do %>
           <%= f.check_box :remember_me %>
-          <%= t("remember_me") %>
+          <%= t("sessions.remember_me") %>
         <% end %>
       </div>
-      <%= f.button t("login"), class: "btn btn-primary btn-block" %>
+      <%= f.button t("sessions.button"), class: "btn btn-primary btn-block" %>
     <% end %>
     <p><%= t "sessions.links_html", link: link_to(t("sessions.signup_now"), signup_path) %></p>
   </div>

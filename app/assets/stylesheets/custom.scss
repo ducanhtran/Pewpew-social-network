@@ -15,6 +15,17 @@
   }
 }
 
+.microposts {
+  .timestamp {
+    color: $gray-light;
+    font-size: 13px;
+  }
+}
+
+.picture {
+  text-align: center;
+}
+
 footer {
   text-align: center;
   background-color: #f5f5f5;

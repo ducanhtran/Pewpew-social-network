@@ -18,6 +18,9 @@ gem "jquery-rails", "~> 4.3.1"
 gem "will_paginate", "3.1.6"
 gem "bootstrap-will_paginate", "1.0.0"
 gem "config", "~> 1.6", ">= 1.6.1"
+gem "carrierwave", "1.1.0"
+gem "mini_magick", "4.7.0"
+gem "fog-aws", "2.0.0"
 
 group :production do
   gem "pg", "0.20.0"
