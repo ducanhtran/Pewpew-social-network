@@ -52,6 +52,7 @@ en:
 
   users:
     title: "All users"
+    signup: "Sign Up"
     update_profile: "Update your profile"
     update_profile_success: "Profile updated"
     save_changes: "Save changes"
@@ -61,6 +62,17 @@ en:
     deleted: "User deleted"
     not_found: "User not found"
     microposts: "Microposts"
+    following: "Following"
+    followers: "Followers"
+    follow: "Follow"
+    unfollow: "Unfollow"
+    view_my_profile: "view my profile"
+
+  shared:
+    following: "following"
+    followers: "followers"
+    view_my_profile: "view my profile"
+    micropost: "micropost"
 
   account_activations:
     success: "Account activated!"

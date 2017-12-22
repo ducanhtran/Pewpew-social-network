@@ -1,6 +1,7 @@
 avatar:
   size_default: 80
   size_small: 50
+  size_xsmall: 30
 
 password:
   minlen: 6
@@ -26,6 +27,10 @@ users:
     users_per_page: 8
   show:
     microposts_per_page: 5
+  following:
+    per_page: 6
+  followers:
+    per_page: 6
 
 home:
   index:

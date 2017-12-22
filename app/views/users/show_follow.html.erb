@@ -1,0 +1,36 @@
+<% provide :title, @title %>
+<div class="row">
+  <aside class="col-md-4">
+    <section class="user_info">
+      <div class="media">
+        <div class="media-left">
+          <%= link_to gravatar_for(@user, size: Settings.avatar.size_small,
+            class: "media-object"), @user %>
+        </div>
+        <div class="media-body">
+          <h4 class="media-heading"><%= @user.name %></h4>
+          <p><%= link_to t("users.view_my_profile"), @user %></p>
+          <p>
+            <b><%= t "users.microposts" %>:</b>
+            <%= @user.microposts.count %>
+          </p>
+        </div>
+      </div>
+    </section>
+    <section class="stats">
+      <%= render "shared/stats" %>
+    </section>
+    <% if @users.any? %>
+      <div class="user_avatars">
+        <% render partial: "follow_user", collection: @users, as: :user %>
+      </div>
+    <% end %>
+  </aside>
+  <div class="col-md-8">
+    <h3><%= @title %></h3>
+    <% if @users.any? %>
+      <%= render @users %>
+      <%= will_paginate %>
+    <% end %>
+  </div>
+</div>

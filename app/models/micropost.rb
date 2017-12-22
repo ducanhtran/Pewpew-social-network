@@ -7,6 +7,8 @@ class Micropost < ApplicationRecord
     length: {maximum: Settings.models.micropost.content_len}
   validate :picture_size
 
+  scope :newest, ->{order id: :desc}
+
   private
 
   def picture_size
