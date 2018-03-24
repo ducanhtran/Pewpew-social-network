@@ -11,8 +11,8 @@ class User < ApplicationRecord
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\Z/i
 
-  before_create :create_activation_digest
   before_save :downcase_email
+  before_create :create_activation_digest
 
   validates :name, presence: true,
     length: {maximum: Settings.models.user.name_len}
@@ -80,11 +80,11 @@ class User < ApplicationRecord
 
   def create_activation_digest
     self.activation_token = User.new_token
-    activation_digest = User.digest self.activation_token
+    self.activation_digest = User.digest(activation_token)
   end
 
   def downcase_email
-    self.email.downcase!
+    self.email = email.downcase
   end
 
   def remember
