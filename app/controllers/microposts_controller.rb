@@ -14,6 +14,10 @@ class MicropostsController < ApplicationController
     end
   end
 
+  def new
+    @comment = Comment.new(post_id: params[:micropost_id])
+  end
+
   def destroy
     if @micropost.destroy
       flash[:success] = t "microposts.post_deleted"

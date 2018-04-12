@@ -14,5 +14,7 @@
     </p>
     <p class="content"><%= micropost.content %></p>
     <p class="picture"><%= image_tag micropost.picture.url if micropost.picture? %></p>
+    <p><%= render micropost.comments %></p>
+    <%= link_to "Add Comment", new_micropost_comment_path(micropost_id: micropost.id) %>
   </div>
 </div>
