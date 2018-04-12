@@ -1,0 +1,22 @@
+<%= provide :title, @user.name %>
+<div class="row">
+  <div class="col-md-4">
+    <div class="user_info">
+      <h3>
+        <%= gravatar_for @user %>
+        <%= @user.name %>
+      </h3>
+    </div>
+    <%= render "shared/stats" %>
+    <%= render "follow_form" if logged_in? %>
+  </div>
+  <div class="col-md-8">
+    <% if @user.microposts.any? %>
+      <h3><%= t "users.microposts" %> (<%= @user.microposts.count %>)</h3>
+      <div class="microposts">
+        <%= render @microposts %>
+      </div>
+      <%= will_paginate @microposts %>
+    <% end %>
+  </div>
+</div>

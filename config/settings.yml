@@ -1,0 +1,40 @@
+avatar:
+  size_default: 80
+  size_small: 50
+  size_xsmall: 30
+
+password:
+  minlen: 6
+  maxlen: 16
+
+password_reset:
+  expired: 2
+
+models:
+  user:
+    name_len: 55
+    email_len: 255
+  micropost:
+    content_len: 140
+
+uploader:
+  picture:
+    width: 400
+    height: 400
+
+users:
+  index:
+    users_per_page: 8
+  show:
+    microposts_per_page: 5
+  following:
+    per_page: 6
+  followers:
+    per_page: 6
+
+home:
+  index:
+    feed_per_page: 5
+
+micropost:
+  picture_size: 4

@@ -1,0 +1,11 @@
+<h1>Mang xa hoi Pewpew!</h1>
+
+<p>Hi <%= @user.name %>,</p>
+
+<p>
+Chao mung ban den voi Ung dung cua chung toi, vui long click de xac nhan mail.
+
+</p>
+
+<%= link_to "Activate", edit_account_activation_url(@user.activation_token,
+                                                    email: @user.email) %>
