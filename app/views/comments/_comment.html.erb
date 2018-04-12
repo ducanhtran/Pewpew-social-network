@@ -1,1 +1,5 @@
-&nbsp<%= link_to comment.body, micropost_comment_path(comment.micropost_id, comment) %><br>
+<div class="comment">
+    <%= link_to gravatar_for(comment.user, size: Settings.avatar.size_small,
+        class: "media-object"), comment.user %>
+    <%= link_to comment.body, micropost_comment_path(comment.micropost_id, comment) %>
+</div>
