@@ -21,6 +21,7 @@ gem "config", "~> 1.6", ">= 1.6.1"
 gem "carrierwave", "1.1.0"
 gem "mini_magick", "4.7.0"
 gem "fog-aws", "2.0.0"
+gem "knockoutjs-rails"
 
 group :production do
   gem "pg", "0.20.0"

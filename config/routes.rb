@@ -3,6 +3,13 @@ Rails.application.routes.draw do
 
   get "static_pages/home"
   get "static_pages/help"
+  get "home/index"
+  resources :conversations, only: [:create] do
+    member do
+      post :close
+    end
+    resources :messages, only: [:create]
+  end
 
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
