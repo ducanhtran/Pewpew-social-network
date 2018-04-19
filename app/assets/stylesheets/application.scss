@@ -1,0 +1,39 @@
+/*
+ *= require_tree .
+ *= require_self
+ */
+ 
+@import "bootstrap-sprockets";
+@import "bootstrap";
+ 
+$link_water: #d9edf7;
+$mint_tulip: #bce8f1;
+$seashell: #f1f0f0;
+$white-eee: #eee;
+
+.messages-list {
+  max-height: 200px;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.message-sent {
+  background-color: $link_water;
+  border-color: $mint_tulip;
+  float: right;
+  margin: 5px 20px;
+  padding: 10px;
+  position: relative;
+}
+
+.message-received {
+  background-color: $seashell;
+  border-color: $white-eee;
+  float: left;
+  margin: 5px 20px;
+  padding: 10px;
+}
+
+.message-button {
+  margin-right: 15px;
+}
