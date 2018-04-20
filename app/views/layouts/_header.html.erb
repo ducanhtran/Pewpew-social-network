@@ -15,11 +15,8 @@
           <li class="active"><%= link_to t("menu.home"), root_path %></li>
           <li><%= link_to t("menu.posts"), current_user %></li>
           <li><%= link_to t("users.title"), users_path %></li>
-          <li><%= link_to t("chat.chat"), chat_index_path %></li>
+          <li><%= link_to t("chat.chat"), chats_index_path %></li>
         </ul>
-<!--         <div class="btn btn-default message-button">
-              <%= link_to t(".message"), conversations_path(user_id: @user), remote: true, method: :post %>
-        </div> -->
         <ul class="nav navbar-nav navbar-right nav-pre">
           <% if logged_in? %>
           <li class="dropdown">

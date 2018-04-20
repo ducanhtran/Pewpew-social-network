@@ -1,6 +1,11 @@
 class User < ApplicationRecord
   attr_accessor :remember_token, :activation_token, :reset_token
 
+  has_many :messages
+  has_many :subscriptions
+  has_many :chats, through: :subscriptions
+
+
   has_many :microposts, dependent: :destroy
   has_many :active_relationships, class_name: "Relationship",
     foreign_key: "follower_id", dependent: :destroy
@@ -8,8 +13,6 @@ class User < ApplicationRecord
     foreign_key: "followed_id", dependent: :destroy
   has_many :followers, through: :passive_relationships, source: :follower
   has_many :following, through: :active_relationships, source: :followed
-  has_many :messages
-  has_many :conversations, foreign_key: :sender_id
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\Z/i
 
@@ -102,6 +105,14 @@ class User < ApplicationRecord
     digest = send "#{attribute}_digest"
     return false if digest.nil?
     BCrypt::Password.new(digest).is_password? token
+  end
+
+  def existing_chats_users
+    existing_chat_users = []
+    self.chats.each do |chat|
+      existing_chat_users.concat(chat.subscriptions.where.not(user_id: self.id).map{|subscription| subscription.user})
+    end
+    existing_chat_users.uniq
   end
 
   class << self
